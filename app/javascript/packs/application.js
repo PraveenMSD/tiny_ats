@@ -11,5 +11,11 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+import $ from 'jquery';
+global.$ = jQuery;
+
+require('packs/jquery.validate.min')
+require('packs/signin')
+
 
 import "bootstrap"
