@@ -16,6 +16,7 @@ global.$ = jQuery;
 
 require('packs/jquery.validate.min')
 require('packs/signin')
+require('packs/newjob')
 
 
 import "bootstrap"
