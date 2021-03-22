@@ -10,7 +10,6 @@
             </strong>
           </h3>
             <% end %>
-
             <div class='some-page-wrapper'>
               <div class='row mb-3'>
                 <div class='column'>
@@ -20,7 +19,7 @@
                 </div>
                 <div class='column'>
                   <div class='green-column'>
-                    <%= simple_format(@candidate.email) %>
+                    <%= @candidate.email %>
                   </div>
                 </div>
               </div>
@@ -33,7 +32,7 @@
                 </div>
                 <div class='column'>
                   <div class='green-column'>
-                    <%= simple_format(@candidate.phone) %>
+                    <%= @candidate.phone %>
                   </div>
                 </div>
               </div>
@@ -59,7 +58,7 @@
                 </div>
                 <div class='column'>
                   <div class='green-column'>
-                    <%= simple_format(@candidate.skill) %>
+                    <%= @candidate.skill %>
                   </div>
                 </div>
               </div>
@@ -72,7 +71,7 @@
                 </div>
                 <div class='column'>
                   <div class='green-column'>
-                    <%= simple_format(@candidate.work_experience) %>
+                    <%= @candidate.work_experience %>
                   </div>
                 </div>
               </div>
@@ -85,7 +84,7 @@
                 </div>
                 <div class='column'>
                   <div class='green-column'>
-                    <%= simple_format(@candidate.ctc) %>
+                    <%= @candidate.ctc %>
                   </div>
                 </div>
               </div>
@@ -107,10 +106,29 @@
                 </div>
               </div>
 
+              <div class='row mb-4'>
+                <div class='column'>
+                  <div class='blue-column'>
+                    Rounds:
+                  </div>
+                </div>
+                <div class='column'>
+                  <div class='green-column'>
+                    <select class="form-select form-select-sm w-50" name="rounds" id="rounds">
+                      <option value="Round 1">Round 1</option>
+                      <option value="Round 2">Round 2</option>
+                      <option value="Round 3">Round 3</option>
+                      <option value="Round 4">Round 4</option>
+                      <option value="Round 5">Round 5</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
             </div>
 
-            <%= link_to "Edit" , edit_candidate_path(@candidate), class: "btn btn-outline-info" %>
-            <%= link_to "Delete" , candidate_path(@candidate), class: "btn btn-outline-danger" %>
+            <%= link_to "Edit" , edit_candidate_path(@candidate), class: "btn btn-outline-info mt-2" %>
+            <%= link_to "Delete" , candidate_path(@candidate), class: "btn btn-outline-danger mt-2" %>
       </div>
 
       <div class="card-footer">

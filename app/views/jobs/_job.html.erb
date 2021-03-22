@@ -4,9 +4,6 @@
     <% @jobs.each do |job| %>
     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 my-2">
       <div class="card shadow p-2 mb-4 bg-white rounded">
-        <%= link_to job_path(job.id) do %> <%# image_tag(job.photo,
-        class:"card-img-top", style:"max-height: 150px;") if job.photo.attached?
-        %> <% end %>
         <div class="card-body">
           <strong class="author-name">Created by <%= job.user.name %> </strong>
           <%= link_to job_path(job.id) do %>

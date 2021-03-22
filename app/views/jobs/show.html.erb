@@ -7,26 +7,17 @@
           <%= @job.user.name %>
         </strong>
         <%= link_to job_path(@job.id) do %>
-          <h3 class="text-dark title mt-3 mb-2"><strong>
+          <h3 class="text-dark title mt-3 mb-2">
+            <strong>
               <%= truncate(strip_tags(@job.title.to_s), length: 38) %>
-            </strong></h3>
-            <% end %>
-              <div class="card-text text-left my-4">
-                <%= simple_format(@job.openings) %>
-              </div>
-                <%= link_to "Edit" , edit_job_path(@job), class: "btn btn-outline-info" %>
-                  <%= link_to "Delete" , job_path(@job), class: "btn btn-outline-danger" %>
-      </div>
-
-      <div class="card-footer">
-        <a class="btn btn-primary mt-2 mb-2" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-          <i class="fas fa-list"></i>
-        </a>
-        <div class="collapse" id="collapseExample">
-          <div class="card card-body">
-            <%= render 'candidates/form' %>
-          </div>
+            </strong>
+          </h3>
+        <% end %>
+        <div class="card-text text-left my-4">
+          <%= simple_format(@job.openings) %>
         </div>
+        <%= link_to "Edit" , edit_job_path(@job), class: "btn btn-outline-info" %>
+        <%= link_to "Delete" , job_path(@job), class: "btn btn-outline-danger" %>
       </div>
     </div>
   </div>

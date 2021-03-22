@@ -42,7 +42,7 @@ class CandidatesController < ApplicationController
     def update
         if @candidate.update(strong_params)
             flash[:notice] = "Candidate updated successfully"
-            redirect_to job_candidates_path
+            redirect_to candidate_path(@candidate)
         else
             render 'edit'
         end
@@ -50,7 +50,7 @@ class CandidatesController < ApplicationController
 
     def destroy
         @candidate = Candidates.find(params[:id])
-        redirect_to job_candidates_path
+        redirect_to candidates_path
     end
 
 

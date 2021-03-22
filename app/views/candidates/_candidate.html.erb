@@ -31,36 +31,36 @@
   </div>
    -->
 
-   <div class="container-fluid">
-    <% if @candidates.blank? %> <% else %>
-    <div class="row" id="all-articles">
-      <% @candidates.each do |candidate| %>
-      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 my-2">
-        <div class="card shadow p-2 mb-4 bg-white rounded">
-          <%= link_to candidate_path(candidate.id) do %> 
-          <div class="card-body">
-            <strong class="author-name">Applied for <%= candidate.job_id %> </strong>
-            <%= link_to candidate_path(candidate.id) do %>
-            <h4 class="text-dark title mt-3 mb-2">
-              <strong>
-                <%= truncate(strip_tags(candidate.name.to_s), length: 38) %>
-              </strong>
-            </h4>
-            <% end %>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted">CTC: <%= (candidate.ctc) %></small> |
-            <small class="text-muted">NP: <%= (candidate.notice_period) %></small> |
-            <small>
-              <%= link_to "Edit", edit_candidate_path(candidate) %> |
-              <%= link_to "Delete" , candidate_path(candidate) %> |
-            </small>
-          </div>
-          <% end %>
-        </div>
+<div class="container-fluid">
+<% if @candidates.blank? %> <% else %>
+<div class="row" id="all-articles">
+  <% @candidates.each do |candidate| %>
+  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 my-2">
+    <div class="card shadow p-2 mb-4 bg-white rounded">
+      <%= link_to candidate_path(candidate.id) do %> 
+      <div class="card-body">
+        <strong class="author-name">Applied for <%= candidate.job_id %> </strong>
+        <%= link_to candidate_path(candidate.id) do %>
+        <h4 class="text-dark title mt-3 mb-2">
+          <strong>
+            <%= truncate(strip_tags(candidate.name.to_s), length: 38) %>
+          </strong>
+        </h4>
+        <% end %>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">CTC: <%= (candidate.ctc) %></small> |
+        <small class="text-muted">NP: <%= (candidate.notice_period) %></small> |
+        <small>
+          <%= link_to "Edit", edit_candidate_path(candidate) %> |
+          <%= link_to "Delete" , candidate_path(candidate) %> |
+        </small>
       </div>
       <% end %>
     </div>
-    <% end %>
   </div>
+  <% end %>
+</div>
+<% end %>
+</div>
   
