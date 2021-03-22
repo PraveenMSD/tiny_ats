@@ -1,33 +1,43 @@
 class CandidatesController < ApplicationController 
     before_action :require_user, except: [:show, :index]
     before_action :set_candidate, only: [:show, :edit, :update, :destroy]
-    before_action :set_job_posting
+    # before_action :set_job_posting
 
     def show
+        # @job = Job.find(params[:job_id])
+        @candidate = Candidate.find(params[:id])
     end
 
     def index
         # @job = Job.find(params[:job_id])
+        # @job = Job.find(params[:job_id])
+
         @candidates = Candidate.all
     end
 
     def new
-        # @job = Job.find(params[:job_id])
         @candidate = Candidate.new
     end
 
+    # def new
+    #     # @job = Job.find(params[:job_id])
+    #     @candidate = Candidate.new
+    # end
+
     def create
         # @job = Job.find(params[:job_id])
-        @candidate = Candidate.new(candidate_params)
+        @job = Job.find(params[:job_id])
+        @candidate = @job.candidates.create(strong_params)
         if @candidate.save
             flash[:notice] = "Candidate created successfully"
-            redirect_to job_candidates_path
+            redirect_to root_path
         else
             render 'new'
         end
     end
 
     def edit
+        @candidate = Candidate.find(params[:id])
     end
 
     def update
@@ -40,6 +50,9 @@ class CandidatesController < ApplicationController
     end
 
     def destroy
+        @job = Job.find(params[:job_id])
+        @candidate = @job.candidates.find(params[:id])
+        redirect_to job_candidates_path
     end
 
 
@@ -53,13 +66,13 @@ class CandidatesController < ApplicationController
         @candidate = Candidate.find(params[:id])
     end
 
-    def candidate_params
-        strong_params.merge( job_id: @job_posting.id.to_s )
-    end
+    # def candidate_params
+    #     strong_params.merge( job_id: @job_posting.id.to_s )
+    # end
 
-    def set_job_posting
-        @job_posting = Job.find(params[:job_id])
-    end
+    # def set_job_posting
+    #     @job_posting = Job.find(params[:job_id])
+    # end
 
 
 end

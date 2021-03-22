@@ -4,21 +4,21 @@
 		<%= form_with(model: @job, local: true, id: "new_job") do |f| %>
 
 			<div class="form-group">
-				<%= f.label :title, class: "col-sm-12 col-form-label" %>
+				<%= f.label :"title:", class: "col-sm-12 col-form-label" %>
 				<div class="col-sm-12">
 					<%= f.text_field :title, class: "form-control", placeholder: "Job Titile" %>
 				</div>
 			</div>
 
 			<div class="form-group">
-				<%= f.label :openings, class: "col-sm-12 col-form-label" %>
+				<%= f.label :"openings:", class: "col-sm-12 col-form-label" %>
 				<div class="col-sm-12">
 					<%= f.text_field :openings, class: "form-control", placeholder: "Job Openings" %>
 				</div>
 			</div>
 
 			<div class="form-group">
-				<%= f.label :experience, class: "col-sm-12 col-form-label" %>
+				<%= f.label :"experience:", class: "col-sm-12 col-form-label" %>
 				<div class="col-sm-12">
 					<%= f.text_field :experience, class: "form-control", placeholder: "Job Experience" %>
 				</div>

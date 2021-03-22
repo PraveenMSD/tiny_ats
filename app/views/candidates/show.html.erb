@@ -1,0 +1,58 @@
+<div class="row justify-content-md-center mt-4" id="articleShowPage">
+  <div class="col-8">
+    <div class="card text-center shadow mb-5 bg-white rounded">
+
+      <div class="card-body">
+        <%= link_to candidate_path(@candidate.id) do %>
+          <h3 class="text-dark title mt-3 mb-2 d-flex flex-column bd-highlight mb-3">
+            <strong>
+              <%= truncate(strip_tags(@candidate.name.to_s), length: 38) %>
+            </strong>
+          </h3>
+            <% end %>
+              <%= simple_format(@candidate.email) %>
+
+              <%= simple_format(@candidate.phone) %>
+
+              Skill:<%= simple_format(@candidate.skill) %>
+
+              Work experience:<%= simple_format(@candidate.work_experience) %>
+              
+              CTC:<%= simple_format(@candidate.ctc) %>
+              
+              Notice period:<%= simple_format(@candidate.notice_period) %>
+
+            <%= link_to "Edit" , edit_candidate_path(@candidate), class: "btn btn-outline-info" %>
+            <%= link_to "Delete" , candidate_path(@candidate), class: "btn btn-outline-danger" %>
+      </div>
+
+      <div class="card-footer">
+
+        <a class="btn mb-4" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+          <i class="fa fa-comments" aria-hidden="true"> </i>
+            <%= @candidate.comments.count %>
+        </a>
+
+        
+        <% if @candidate.comments.present? || signed_in? %>
+          <div class="collapse" id="collapseExample">
+            <div class="card card-body comment-form">
+              <%= render 'comments/comment' %>
+
+            </div>
+          </div>
+          <% if signed_in? %>
+
+            <div class="collapse" id="collapseExample">
+              <div class="card card-body my-4">
+                <%= render 'comments/form' %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+      </div>
+    </div>
+  </div>
+  </div>

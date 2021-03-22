@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_21_103353) do
+ActiveRecord::Schema.define(version: 2021_03_22_071441) do
 
   create_table "candidates", force: :cascade do |t|
     t.string "name", default: "", null: false
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(version: 2021_03_21_103353) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["job_id"], name: "index_candidates_on_job_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string "commenter", default: "", null: false
+    t.string "body", default: "", null: false
+    t.integer "candidate_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["candidate_id"], name: "index_comments_on_candidate_id"
   end
 
   create_table "jobs", force: :cascade do |t|
@@ -60,5 +69,6 @@ ActiveRecord::Schema.define(version: 2021_03_21_103353) do
   end
 
   add_foreign_key "candidates", "jobs"
+  add_foreign_key "comments", "candidates"
   add_foreign_key "jobs", "users"
 end

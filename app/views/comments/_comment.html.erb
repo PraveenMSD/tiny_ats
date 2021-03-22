@@ -1,0 +1,12 @@
+<div class="card-text text-left">
+    <h6>Comments:</h6>
+    <% @candidate.comments.each do |comment| %>
+    <p>
+        <div id="edit_comment_<%= comment.id %>">
+            <b><%= comment.commenter %> :</b>
+            <%= comment.body %>
+            <%= link_to "Delete comment", [comment.candidate, comment], method: :delete, remote: true %>
+        </div>
+    </p>
+    <% end %>
+</div>
