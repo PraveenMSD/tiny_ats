@@ -10,17 +10,104 @@
             </strong>
           </h3>
             <% end %>
-              <%= simple_format(@candidate.email) %>
 
-              <%= simple_format(@candidate.phone) %>
+            <div class='some-page-wrapper'>
+              <div class='row mb-3'>
+                <div class='column'>
+                  <div class='blue-column'>
+                    Email:
+                  </div>
+                </div>
+                <div class='column'>
+                  <div class='green-column'>
+                    <%= simple_format(@candidate.email) %>
+                  </div>
+                </div>
+              </div>
 
-              Skill:<%= simple_format(@candidate.skill) %>
+              <div class='row mb-3'>
+                <div class='column'>
+                  <div class='blue-column'>
+                    Phone:
+                  </div>
+                </div>
+                <div class='column'>
+                  <div class='green-column'>
+                    <%= simple_format(@candidate.phone) %>
+                  </div>
+                </div>
+              </div>
 
-              Work experience:<%= simple_format(@candidate.work_experience) %>
-              
-              CTC:<%= simple_format(@candidate.ctc) %>
-              
-              Notice period:<%= simple_format(@candidate.notice_period) %>
+              <div class='row mb-3'>
+                <div class='column'>
+                  <div class='blue-column'>
+                    Job id:
+                  </div>
+                </div>
+                <div class='column'>
+                  <div class='green-column'>
+                    <%= @candidate.job_id %>
+                  </div>
+                </div>
+              </div>
+
+              <div class='row mb-3'>
+                <div class='column'>
+                  <div class='blue-column'>
+                    Skill:
+                  </div>
+                </div>
+                <div class='column'>
+                  <div class='green-column'>
+                    <%= simple_format(@candidate.skill) %>
+                  </div>
+                </div>
+              </div>
+
+              <div class='row mb-3'>
+                <div class='column'>
+                  <div class='blue-column'>
+                    Work experirence:
+                  </div>
+                </div>
+                <div class='column'>
+                  <div class='green-column'>
+                    <%= simple_format(@candidate.work_experience) %>
+                  </div>
+                </div>
+              </div>
+
+              <div class='row mb-3'>
+                <div class='column'>
+                  <div class='blue-column'>
+                    CTC:
+                  </div>
+                </div>
+                <div class='column'>
+                  <div class='green-column'>
+                    <%= simple_format(@candidate.ctc) %>
+                  </div>
+                </div>
+              </div>
+
+              <div class='row mb-3'>
+                <div class='column'>
+                  <div class='blue-column'>
+                    Notice period:
+                  </div>
+                </div>
+                <div class='column'>
+                  <div class='green-column'>
+                    <% if @candidate.notice_period == "" %>
+                      --
+                    <% else %>
+                      <%= @candidate.notice_period %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+
+            </div>
 
             <%= link_to "Edit" , edit_candidate_path(@candidate), class: "btn btn-outline-info" %>
             <%= link_to "Delete" , candidate_path(@candidate), class: "btn btn-outline-danger" %>

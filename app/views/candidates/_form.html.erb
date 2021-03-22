@@ -2,7 +2,14 @@
   <div class="col-xl-6">
 		<%= form_with(model: @candidate, local: true, id: "new_candidate") do |f| %>
 
-    <div class="form-group">
+      <div class="form-group">
+        <%= f.label :"allname", class:"col-sm-12 col-form-label" %>
+        <div class="col-sm-12">
+          <%= f.collection_select :job_id, Job.order(:title),:id,:title, include_blank: false, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="form-group">
         <%= f.label :"name:", class: "col-sm-12 col-form-label" %>
         <div class="col-sm-12">
           <%= f.text_field :name, class: "form-control", placeholder: "Candidate name" %>
@@ -51,14 +58,6 @@
         <%= f.label :"notice_period:", class: "col-sm-12 col-form-label" %>
         <div class="col-sm-12">
           <%= f.text_field :notice_period, class: "form-control", placeholder:
-          "Notice Period" %>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :"applied_for:", class: "col-sm-12 col-form-label" %>
-        <div class="col-sm-12">
-          <%= f.text_field :applied_for, class: "form-control", placeholder:
           "Notice Period" %>
         </div>
       </div>

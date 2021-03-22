@@ -26,3 +26,41 @@ body {
   height: 100%;
   overflow-x: hidden;
 }
+
+.some-page-wrapper {
+  margin: 5px;
+  // background-color: red;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 10%;
+  flex: 1;
+}
+
+.double-column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 10%;
+  flex: 2;
+}
+
+.blue-column {
+  // background-color: blue;
+  height: 15px;
+  text-align: end;
+}
+
+.green-column {
+    height: 15px;
+    // background-color: green;
+    text-align: start;
+}

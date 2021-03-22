@@ -26,8 +26,7 @@ class CandidatesController < ApplicationController
 
     def create
         # @job = Job.find(params[:job_id])
-        @job = Job.find(params[:job_id])
-        @candidate = @job.candidates.create(strong_params)
+        @candidate = Candidate.create(strong_params)
         if @candidate.save
             flash[:notice] = "Candidate created successfully"
             redirect_to root_path
@@ -41,7 +40,7 @@ class CandidatesController < ApplicationController
     end
 
     def update
-        if @candidate.update(candidate_params)
+        if @candidate.update(strong_params)
             flash[:notice] = "Candidate updated successfully"
             redirect_to job_candidates_path
         else
@@ -50,8 +49,7 @@ class CandidatesController < ApplicationController
     end
 
     def destroy
-        @job = Job.find(params[:job_id])
-        @candidate = @job.candidates.find(params[:id])
+        @candidate = Candidates.find(params[:id])
         redirect_to job_candidates_path
     end
 
@@ -59,7 +57,7 @@ class CandidatesController < ApplicationController
     private
 
     def strong_params
-        params.require(:candidate).permit(:name, :phone, :email, :skill, :work_experience, :ctc, :notice_period)
+        params.require(:candidate).permit(:name, :phone, :email, :skill, :work_experience, :ctc, :notice_period, :job_id)
     end
 
     def set_candidate
