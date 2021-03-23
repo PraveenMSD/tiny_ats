@@ -15,9 +15,8 @@ import $ from 'jquery';
 global.$ = jQuery;
 
 require('packs/jquery.validate.min')
-require('packs/signin')
-require('packs/newjob')
-
+require('packs/formfieldvalidate')
+require('packs/candidates')
 
 import "bootstrap"
 import "@fortawesome/fontawesome-free/css/all"

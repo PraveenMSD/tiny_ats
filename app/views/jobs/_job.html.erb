@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<!-- <div class="container-fluid">
   <% if @jobs.blank? %> <% else %>
   <div class="row" id="all-articles">
     <% @jobs.each do |job| %>
@@ -15,7 +15,6 @@
           <% end %>
         </div>
         <div class="card-footer">
-          <!-- <small class="text-muted"><%= (job.created_at).strftime("%b %d, %Y")%></small> -->
           <small class="text-muted">Total: <%= (job.openings) %></small> |
           <small class="text-muted">Remaining: <%= job.remaining %></small> |
           <small class="text-muted">Selected: <%= job.selected %></small> |
@@ -29,4 +28,87 @@
     <% end %>
   </div>
   <% end %>
+</div> -->
+
+<div class="container-fluid">
+  <div class="row text-center">
+    <div class="col-md-4">
+      <h5>High</h5>
+      <% @jobshp.each do |jobhp| %>
+        <div class="card shadow p-2 mb-4 bg-white rounded">
+          <div class="card-body">
+            <strong class="author-name">Created by <%= jobhp.user.name %> </strong>
+            <%= link_to job_path(jobhp.id) do %>
+            <h4 class="text-dark title mt-3 mb-2">
+              <strong>
+                <%= truncate(strip_tags(jobhp.title.to_s), length: 38) %>
+              </strong>
+            </h4>
+            <% end %>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Total: <%= (jobhp.openings) %></small> |
+            <small class="text-muted">Remaining: <%= jobhp.remaining %></small> |
+            <small class="text-muted">Selected: <%= jobhp.selected %></small> |
+            <small>
+              <%= link_to "Edit", edit_job_path(jobhp) %> |
+              <%= link_to "Delete" , job_path(jobhp) %> |
+            </small> |
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-md-4">
+      <h5>Medium</h5>
+      <% @jobsmp.each do |jobmp| %>
+        <div class="card shadow p-2 mb-4 bg-white rounded">
+          <div class="card-body">
+            <strong class="author-name">Created by <%= jobmp.user.name %> </strong>
+            <%= link_to job_path(jobmp.id) do %>
+            <h4 class="text-dark title mt-3 mb-2">
+              <strong>
+                <%= truncate(strip_tags(jobmp.title.to_s), length: 38) %>
+              </strong>
+            </h4>
+            <% end %>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Total: <%= (jobmp.openings) %></small> |
+            <small class="text-muted">Remaining: <%= jobmp.remaining %></small> |
+            <small class="text-muted">Selected: <%= jobmp.selected %></small> |
+            <small>
+              <%= link_to "Edit", edit_job_path(jobmp) %> |
+              <%= link_to "Delete" , job_path(jobmp) %> |
+            </small> |
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-md-4">
+      <h5>Low</h5>
+      <% @jobslp.each do |joblp| %>
+        <div class="card shadow p-2 mb-4 bg-white rounded">
+          <div class="card-body">
+            <strong class="author-name">Created by <%= joblp.user.name %> </strong>
+            <%= link_to job_path(joblp.id) do %>
+            <h4 class="text-dark title mt-3 mb-2">
+              <strong>
+                <%= truncate(strip_tags(joblp.title.to_s), length: 38) %>
+              </strong>
+            </h4>
+            <% end %>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Total: <%= (joblp.openings) %></small> |
+            <small class="text-muted">Remaining: <%= joblp.remaining %></small> |
+            <small class="text-muted">Selected: <%= joblp.selected %></small> |
+            <small>
+              <%= link_to "Edit", edit_job_path(joblp) %> |
+              <%= link_to "Delete" , job_path(joblp) %> |
+            </small> |
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>

@@ -19,7 +19,9 @@
                 </div>
                 <div class='column'>
                   <div class='green-column'>
-                    <%= @candidate.email %>
+                    <strong>
+                      <%= @candidate.email %>
+                    </strong>
                   </div>
                 </div>
               </div>
@@ -32,7 +34,9 @@
                 </div>
                 <div class='column'>
                   <div class='green-column'>
-                    <%= @candidate.phone %>
+                    <strong>
+                      <%= @candidate.phone %>
+                    </strong>
                   </div>
                 </div>
               </div>
@@ -45,7 +49,9 @@
                 </div>
                 <div class='column'>
                   <div class='green-column'>
-                    <%= @candidate.job_id %>
+                    <strong>
+                      <%= @candidate.job_id %>
+                    </strong>
                   </div>
                 </div>
               </div>
@@ -58,7 +64,9 @@
                 </div>
                 <div class='column'>
                   <div class='green-column'>
-                    <%= @candidate.skill %>
+                    <strong>
+                      <%= @candidate.skill %>
+                    </strong>
                   </div>
                 </div>
               </div>
@@ -71,7 +79,9 @@
                 </div>
                 <div class='column'>
                   <div class='green-column'>
-                    <%= @candidate.work_experience %>
+                    <strong>
+                      <%= @candidate.work_experience %>
+                    </strong>
                   </div>
                 </div>
               </div>
@@ -84,7 +94,9 @@
                 </div>
                 <div class='column'>
                   <div class='green-column'>
-                    <%= @candidate.ctc %>
+                    <strong>
+                      <%= @candidate.ctc %>
+                    </strong>
                   </div>
                 </div>
               </div>
@@ -97,11 +109,34 @@
                 </div>
                 <div class='column'>
                   <div class='green-column'>
-                    <% if @candidate.notice_period == "" %>
-                      --
-                    <% else %>
-                      <%= @candidate.notice_period %>
-                    <% end %>
+                    <strong>
+                      <% if @candidate.notice_period == "" %>
+                        --
+                      <% else %>
+                        <%= @candidate.notice_period %>
+                      <% end %>
+                    </strong>
+                  </div>
+                </div>
+              </div>
+
+              <div class='row mb-3'>
+                <div class='column'>
+                  <div class='blue-column'>
+                    Status:
+                  </div>
+                </div>
+                <div class='column'>
+                  <div class='green-column'>
+                    <strong>
+                      <div id="statusspan">
+                        <% if @candidate.status == "" %>
+                          <span id="statusspan">--</span>
+                        <% else %>
+                          <%= @candidate.status %>
+                        <% end %>
+                      </div>
+                    </strong>
                   </div>
                 </div>
               </div>
@@ -114,7 +149,7 @@
                 </div>
                 <div class='column'>
                   <div class='green-column'>
-                    <select class="form-select form-select-sm w-50" name="rounds" id="rounds">
+                    <select class="form-select form-select-sm w-50" name="rounds" id="rounds" data-cid='<%= @candidate.id %>'>
                       <option value="Round 1">Round 1</option>
                       <option value="Round 2">Round 2</option>
                       <option value="Round 3">Round 3</option>

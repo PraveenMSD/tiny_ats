@@ -13,9 +13,198 @@
             </strong>
           </h3>
         <% end %>
-        <div class="card-text text-left my-4">
-          <%= simple_format(@job.openings) %>
+        
+        <div class='some-page-wrapper'>
+          <div class='row mb-3'>
+            <div class='column'>
+              <div class='blue-column'>
+                Openings:
+              </div>
+            </div>
+            <div class='column'>
+              <div class='green-column'>
+                <strong>
+                  <% if @job.openings == "" %>
+                    <span>--</span>
+                  <% else %>
+                    <%= @job.openings %>
+                  <% end %>
+                </strong>
+              </div>
+            </div>
+          </div>
+
+          <div class='row mb-3'>
+            <div class='column'>
+              <div class='blue-column'>
+                Applied:
+              </div>
+            </div>
+            <div class='column'>
+              <div class='green-column'>
+                <strong>
+                  <% if @job.applied == "" %>
+                    <span>--</span>
+                  <% else %>
+                    <%= @job.applied %>
+                  <% end %>
+                </strong>
+              </div>
+            </div>
+          </div>
+
+          <div class='row mb-3'>
+            <div class='column'>
+              <div class='blue-column'>
+                Rejected:
+              </div>
+            </div>
+            <div class='column'>
+              <div class='green-column'>
+                <strong>
+                  <% if @job.rejected == "" %>
+                    <span>--</span>
+                  <% else %>
+                    <%= @job.rejected %>
+                  <% end %>
+                </strong>
+              </div>
+            </div>
+          </div>
+
+          <div class='row mb-3'>
+            <div class='column'>
+              <div class='blue-column'>
+                Remaining:
+              </div>
+            </div>
+            <div class='column'>
+              <div class='green-column'>
+                <strong>
+                  <% if @job.remaining == "" %>
+                    <span>--</span>
+                  <% else %>
+                    <%= @job.remaining %>
+                  <% end %>
+                </strong>
+              </div>
+            </div>
+          </div>
+
+          <div class='row mb-3'>
+            <div class='column'>
+              <div class='blue-column'>
+                Experirence:
+              </div>
+            </div>
+            <div class='column'>
+              <div class='green-column'>
+                <strong>
+                  <% if @job.experience == "" %>
+                    <span>--</span>
+                  <% else %>
+                    <%= @job.experience %>
+                  <% end %>
+                </strong>
+              </div>
+            </div>
+          </div>
+
+          <div class='row mb-3'>
+            <div class='column'>
+              <div class='blue-column'>
+                Selected:
+              </div>
+            </div>
+            <div class='column'>
+              <div class='green-column'>
+                <strong>
+                  <% if @job.selected == "" %>
+                    <span>--</span>
+                  <% else %>
+                    <%= @job.selected %>
+                  <% end %>
+                </strong>
+              </div>
+            </div>
+          </div>
+
+          <div class='row mb-3'>
+            <div class='column'>
+              <div class='blue-column'>
+                In progress:
+              </div>
+            </div>
+            <div class='column'>
+              <div class='green-column'>
+                <strong>
+                  <% if @job.in_progress == "" %>
+                    <span>--</span>
+                  <% else %>
+                    <%= @job.in_progress %>
+                  <% end %>
+                </strong>
+              </div>
+            </div>
+          </div>
+
+          <div class='row mb-3'>
+            <div class='column'>
+              <div class='blue-column'>
+                Employment type:
+              </div>
+            </div>
+            <div class='column'>
+              <div class='green-column'>
+                <strong>
+                  <% if @job.employment_type == "" %>
+                    <span>--</span>
+                  <% else %>
+                    <%= @job.employment_type %>
+                  <% end %>
+                </strong>
+              </div>
+            </div>
+          </div>
+
+          <div class='row mb-3'>
+            <div class='column'>
+              <div class='blue-column'>
+                Joining type:
+              </div>
+            </div>
+            <div class='column'>
+              <div class='green-column'>
+                <strong>
+                  <% if @job.joining_type == "" %>
+                    <span>--</span>
+                  <% else %>
+                    <%= @job.joining_type %>
+                  <% end %>
+                </strong>
+              </div>
+            </div>
+          </div>
+
+          <div class='row mb-4'>
+            <div class='column'>
+              <div class='blue-column'>
+                Priority:
+              </div>
+            </div>
+            <div class='column'>
+              <div class='green-column'>
+                <select class="form-select form-select-sm w-50" name="priority" id="priority" data-jid='<%= @job.id %>'>
+                  <option value="High">High</option>
+                  <option value="Medium">Medium</option>
+                  <option value="Low">Low</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
         </div>
+
         <%= link_to "Edit" , edit_job_path(@job), class: "btn btn-outline-info" %>
         <%= link_to "Delete" , job_path(@job), class: "btn btn-outline-danger" %>
       </div>

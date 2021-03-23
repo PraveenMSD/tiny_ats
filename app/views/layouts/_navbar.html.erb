@@ -6,31 +6,51 @@
     </button>
     <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarScroll">
       <ul class="navbar-nav ml-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Job
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-            <li><a class="dropdown-item" href="/jobs">All jobs</a></li>
-            <li><a class="dropdown-item" href="/jobs/new">Add job</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Candidate
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-            <li><a class="dropdown-item" href="/candidates">All candidates</a></li>
-            <li><a class="dropdown-item" href="/candidates/new">Add candidate</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">
-            <% if user_signed_in? %>
-             <%= current_user.name %>
-            <% end %>
-          </a>
-        </li>
+        <% if user_signed_in? %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Jobs
+            </a>
+            <ul class="dropdown-menu" >
+              <li><a class="dropdown-item" href="/jobs"> <i class="fas fa-list"></i>&nbsp; All</a></li>
+              <li><a class="dropdown-item" href="/jobs/new"><i class="fas fa-plus"></i>&nbsp; New</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Candidates
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+              <li><a class="dropdown-item" href="/candidates"><i class="fas fa-list"></i>&nbsp; All</a></li>
+              <li><a class="dropdown-item" href="/candidates/new"><i class="fas fa-plus"></i>&nbsp; New</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">
+              <%= current_user.name %>
+            </a>
+          </li>
+          <div class="dropdown">
+            <a class="btn" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fas fa-user fa-2x"></i>
+            </a>
+          
+            <ul class="dropdown-menu" style="right: 0; left: auto;" aria-labelledby="dropdownMenuLink">
+              <li class="text-center">
+                <a class="dropdown-item" href="#">
+                  <%= link_to destroy_user_session_path, :method => :delete, :class=> "btn" do %>
+                    <i class="fas fa-sign-out-alt" aria-hidden="true" target="_blank"></i> Sign out
+                  <% end %>
+                </a>
+              </li>
+            </ul>
+
+          </div>
+        <% else %>
+          <li class="nav-item">
+            <a class="btn" href="/users/sign_in">Sign in</a>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>

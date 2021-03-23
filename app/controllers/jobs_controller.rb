@@ -8,6 +8,9 @@ class JobsController < ApplicationController
 
     def index
         @jobs = Job.all
+        @jobshp = Job.where(priority: "High")
+        @jobsmp = Job.where(priority: "Medium")
+        @jobslp = Job.where(priority: "Low")
     end
 
     def new
@@ -44,6 +47,18 @@ class JobsController < ApplicationController
         redirect_to jobs_path
     end
 
+    def priority
+        @priority = Job.find(params[:id])
+      
+        # if @status.update_attributes(:status => params[:value])
+        if  @priority.update(priority: params[:value])
+            flash[:notice] = "Status updated successfully"
+        else
+            flash[:notice] = "Status updated failed"
+        end
+        render json: { status: (@priority.priority.to_s) }, status: 200
+    end
+
     private
 
     def set_job
@@ -51,7 +66,7 @@ class JobsController < ApplicationController
     end
 
     def job_params
-        params.require(:job).permit(:title, :openings, :applied, :rejected, :remaining, :experience, :selected, :in_progress)
+        params.require(:job).permit(:title, :openings, :applied, :rejected, :remaining, :experience, :selected, :in_progress, :employment_type, :joining_type)
     end
 
 end

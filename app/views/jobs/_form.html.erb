@@ -24,7 +24,22 @@
 				</div>
 			</div>
 
-			<div class="form-group justify-content-center mt-4">
+			<div class="form-group">
+				<%= f.label :"employment_type:", class: "col-sm-12 col-form-label" %>
+				<div class="col-sm-12">
+					<%= f.select(:employment_type, options_for_select([['Full-time'], ['Part-time'],
+					['Contract']]), {}, class:"form-select form-select w-100") %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<%= f.label :"joining_type:", class: "col-sm-12 col-form-label" %>
+				<div class="col-sm-12">
+					<%= f.text_field :joining_type, class: "form-control", placeholder: "Job Experience" %>
+				</div>
+			</div>
+
+			<div class="form-group justify-content-center mt-4 mb-4">
 				<%= f.submit class: "btn btn-outline-info" %>
 			</div>
 

@@ -54,6 +54,19 @@ class CandidatesController < ApplicationController
     end
 
 
+    def status
+        @status = Candidate.find(params[:id])
+      
+        # if @status.update_attributes(:status => params[:value])
+        if  @status.update(status: params[:value])
+            flash[:notice] = "Status updated successfully"
+        else
+            flash[:notice] = "Status updated failed"
+        end
+        render json: { status: (@status.status.to_s) }, status: 200
+    end
+
+
     private
 
     def strong_params

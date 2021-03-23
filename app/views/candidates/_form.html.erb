@@ -3,9 +3,11 @@
 		<%= form_with(model: @candidate, local: true, id: "new_candidate") do |f| %>
 
       <div class="form-group">
-        <%= f.label :"allname", class:"col-sm-12 col-form-label" %>
+        <%= f.label :"Applying_for:", class:"col-sm-12 col-form-label" %>
         <div class="col-sm-12">
-          <%= f.collection_select :job_id, Job.order(:title),:id,:title, include_blank: false, class: "form-control" %>
+          <%= f.collection_select(:job_id, Job.all, :id, :title, {include_blank: false}, {class:"form-select form-select w-100"}) %>
+
+          <!-- <%= f.collection_select(:job_id, Job.order(:title),:id,:title, include_blank: false, class: "form-control") %> -->
         </div>
       </div>
 
