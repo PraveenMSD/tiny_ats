@@ -51,8 +51,7 @@
             <small class="text-muted">Remaining: <%= jobhp.remaining %></small> |
             <small class="text-muted">Selected: <%= jobhp.selected %></small> |
             <small>
-              <%= link_to "Edit", edit_job_path(jobhp) %> |
-              <%= link_to "Delete" , job_path(jobhp) %> |
+              <button class="btn btn-primary jobid" data-jjid='<%= jobhp.id %>'> Click </button>
             </small> |
           </div>
         </div>
@@ -77,8 +76,7 @@
             <small class="text-muted">Remaining: <%= jobmp.remaining %></small> |
             <small class="text-muted">Selected: <%= jobmp.selected %></small> |
             <small>
-              <%= link_to "Edit", edit_job_path(jobmp) %> |
-              <%= link_to "Delete" , job_path(jobmp) %> |
+              <button class="btn btn-primary jobid" data-jjid='<%= jobmp.id %>'> Click </button>
             </small> |
           </div>
         </div>
@@ -103,12 +101,13 @@
             <small class="text-muted">Remaining: <%= joblp.remaining %></small> |
             <small class="text-muted">Selected: <%= joblp.selected %></small> |
             <small>
-              <%= link_to "Edit", edit_job_path(joblp) %> |
-              <%= link_to "Delete" , job_path(joblp) %> |
+              <button class="btn btn-primary jobid" data-jjid='<%= joblp.id %>'> Click </button>
             </small> |
           </div>
         </div>
       <% end %>
     </div>
   </div>
+  <%= render 'shared/candidatetable' %>
 </div>
+

@@ -6,41 +6,48 @@
 			<div class="form-group">
 				<%= f.label :"title:", class: "col-sm-12 col-form-label" %>
 				<div class="col-sm-12">
-					<%= f.text_field :title, class: "form-control", placeholder: "Job Titile" %>
+					<%= f.text_field :title, class: "form-control", placeholder: "Job Titile", id: "selectvalidate" %>
 				</div>
 			</div>
 
 			<div class="form-group">
 				<%= f.label :"openings:", class: "col-sm-12 col-form-label" %>
 				<div class="col-sm-12">
-					<%= f.text_field :openings, class: "form-control", placeholder: "Job Openings" %>
+					<%= f.text_field :openings, class: "form-control", placeholder: "Job Openings", id: "selectvalidate" %>
 				</div>
 			</div>
 
 			<div class="form-group">
 				<%= f.label :"experience:", class: "col-sm-12 col-form-label" %>
 				<div class="col-sm-12">
-					<%= f.text_field :experience, class: "form-control", placeholder: "Job Experience" %>
+					<%= f.text_field :experience, class: "form-control", placeholder: "Job Experience", id: "selectvalidate" %>
 				</div>
 			</div>
 
 			<div class="form-group">
 				<%= f.label :"employment_type:", class: "col-sm-12 col-form-label" %>
 				<div class="col-sm-12">
-					<%= f.select(:employment_type, options_for_select([['Full-time'], ['Part-time'],
-					['Contract']]), {}, class:"form-select form-select w-100") %>
+					<%= f.select(:employment_type, options_for_select([['-- Please select --'], ['Full-time'], ['Part-time'],
+					['Contract']]), {}, class:"form-select form-select w-100", id:"employment_type_select") %>
 				</div>
 			</div>
 
 			<div class="form-group">
 				<%= f.label :"joining_type:", class: "col-sm-12 col-form-label" %>
 				<div class="col-sm-12">
-					<%= f.text_field :joining_type, class: "form-control", placeholder: "Job Experience" %>
+					<%= f.text_field :joining_type, class: "form-control", placeholder: "Job Experience", id: "selectvalidate" %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<%= f.label :"priority:", class: "col-sm-12 col-form-label" %>
+				<div class="col-sm-12">
+					<%= f.select(:priority, options_for_select([['High'], ['Medium'], ['Low']]), {}, class:"form-select form-select w-100", id:"priority_type_select") %>
 				</div>
 			</div>
 
 			<div class="form-group justify-content-center mt-4 mb-4">
-				<%= f.submit class: "btn btn-outline-info" %>
+				<%= f.submit class: "btn btn-outline-info" ,id: "jobsubmit" %>
 			</div>
 
 		<% end %>

@@ -17,6 +17,7 @@ global.$ = jQuery;
 require('packs/jquery.validate.min')
 require('packs/formfieldvalidate')
 require('packs/candidates')
+require('datatables.net-bs4')
 
 import "bootstrap"
 import "@fortawesome/fontawesome-free/css/all"

@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2021_03_23_050251) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "status", default: "", null: false
+    t.string "job_title", default: "", null: false
     t.index ["job_id"], name: "index_candidates_on_job_id"
   end
 

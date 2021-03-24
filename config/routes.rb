@@ -13,6 +13,10 @@ Rails.application.routes.draw do
 
   post '/jobs/priority' => 'jobs#priority'
 
+  post '/candidates/job_title' => 'candidates#job_title'
+
+  post '/candidates/get_candidates' => 'candidates#get_candidates'
+
   root to: 'jobs#index'
 
 end

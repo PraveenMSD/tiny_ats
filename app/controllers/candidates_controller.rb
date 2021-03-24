@@ -10,8 +10,6 @@ class CandidatesController < ApplicationController
 
     def index
         # @job = Job.find(params[:job_id])
-        # @job = Job.find(params[:job_id])
-
         @candidates = Candidate.all
     end
 
@@ -66,11 +64,29 @@ class CandidatesController < ApplicationController
         render json: { status: (@status.status.to_s) }, status: 200
     end
 
+    def job_title
+        @jobtitle = Candidate.find(params[:id])
+
+        if @jobtitle.update(job_title: params[:value])
+            flash[:notice] = "Title saved successfully"
+        else
+            flash[:notice] = "Title save failed"
+        end
+        
+        render json: { job_title: (@jobtitle.job_title.to_s) }, status: 200
+    end
+
+    def get_candidates
+        @candidateslist = Candidate.where(job_id: params[:id])
+
+        render json: @candidateslist, status: 200
+    end
+
 
     private
 
     def strong_params
-        params.require(:candidate).permit(:name, :phone, :email, :skill, :work_experience, :ctc, :notice_period, :job_id)
+        params.require(:candidate).permit(:name, :phone, :email, :skill, :work_experience, :ctc, :notice_period, :job_id, :job_title)
     end
 
     def set_candidate

@@ -52,6 +52,17 @@ $(document).on("turbolinks:load", function () {
     }
   });
 
+  // $('#selectvalidate').on('keyup', function(){
+  //   var isValid = true;
+  //   if ($('#employment_type_select').val() || $('#priority_type_select').val() == "-- Please select --") {
+  //     console.log('Alert working')
+  //     $('#jobsubmit').attr('disabled', 'disabled')
+  //     isValid = false
+  //   } else {
+  //     $('#jobsubmit').removeAttr('enabled')
+  //   }
+  // })
+
   $("#new_candidate").validate({
     rules: {
       "candidate[name]": {

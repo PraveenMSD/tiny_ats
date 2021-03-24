@@ -39,7 +39,7 @@
     <div class="card shadow p-2 mb-4 bg-white rounded">
       <%= link_to candidate_path(candidate.id) do %> 
       <div class="card-body">
-        <strong class="author-name">Applied for <%= candidate.job_id %> </strong>
+        <strong class="author-name">Applied for: <%= candidate.job_title %> </strong>
         <%= link_to candidate_path(candidate.id) do %>
         <h4 class="text-dark title mt-3 mb-2">
           <strong>
